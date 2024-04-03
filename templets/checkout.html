@@ -1,672 +1,483 @@
 <!DOCTYPE html>
 
-<html class="no-js" lang="en">
-<!-- belle/home5-cosmetic.html   11 Nov 2019 12:25:38 GMT -->
+<html lang="zxx">
 <head><script>{% load static %}</script><script>{% load custom_tags %}</script><script>var jsonDataww = {{ json_data|safe }};</script>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<meta charset="utf-8"/>
+<meta content="Ashion Template" name="description"/>
+<meta content="Ashion, unica, creative, html" name="keywords"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="ie=edge" http-equiv="X-UA-Compatible"/>
 <title id="title_1"></title>
-<meta content="description" name="description"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<!-- Favicon -->
-<link href="{% static 'assets/images/favicon.png' %}" rel="shortcut icon"/>
-<!-- Plugins CSS -->
-<link href="{% static 'assets/css/plugins.css' %}" rel="stylesheet"/>
-<!-- Bootstap CSS -->
-<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
-<!-- Main Style CSS -->
-<link href="{% static 'assets/css/style.css' %}" rel="stylesheet"/>
-<link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet"/>
+<!-- Google Font -->
+<link href="{% static 'https://fonts.googleapis.com/css2?family=Cookie&amp;display=swap' %}" rel="stylesheet"/>
+<link href="{% static 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap' %}" rel="stylesheet"/>
+<!-- Css Styles -->
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/elegant-icons.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/jquery-ui.min.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/slicknav.min.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
 </head>
-<body class="template-index belle home5-cosmetic">
+<body>
+<!-- Page Preloder -->
 
-<div class="pageWrapper">
-<!--Search Form Drawer-->
-<div class="search">
-	<div class="search__form">
-	<form class="search-bar__form"  role="search" action="{% url 'web:search' %}">
-	<button class="go-btn search__button" type="submit"><i class="icon anm anm-search-l"></i></button>
-	<input aria-label="Search" autocomplete="off" class="search__input" name="search"  placeholder="Search entire store..." type="search" value=""/>
-	</form>
-	<button class="search-trigger close-btn" type="button"><i class="anm anm-times-l"></i></button>
-	</div>
-	</div>
-<!--End Search Form Drawer-->
-<!--Top Header-->
-<div class="top-header">
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+<div class="offcanvas__close">+</div>
+<ul class="offcanvas__widget">
+<li><span class="icon_search search-switch"></span></li>
+<li><a href="{% url 'shop:cart_list' %}"><span class="icon_bag_alt"></span>
+
+
+</ul>
+<div class="offcanvas__logo">
+<a href="{% url 'web:index' %}"><img alt="" src="{% get_image_url 8 %}"/></a>
+</div>
+<div id="mobile-menu-wrap"></div>
+<div class="offcanvas__auth">
+    {% if user.is_authenticated %}
+  
+    <li class="list-inline-item"><a  href="{% url 'shop:logout' %}"><div>Logout</div></a></li>
+            {% else %}
+      <li class="list-inline-item"><a href="{% url 'shop:login' %}">Login/Register</a></li>
+     {% endif %}
+    
+</div>
+</div>
+<!-- Offcanvas Menu End -->
+<!-- Header Section Begin -->
+<header class="header">
 <div class="container-fluid">
 <div class="row">
-<div class="col-10 col-sm-8 col-md-5 col-lg-4">
-<div class="currency-picker">
+<div class="col-xl-3 col-lg-2">
+<div class="header__logo">
+<a href="{% url 'web:index' %}"><img alt="" src="{% get_image_url 9 %}"/></a>
+</div>
+</div>
+<div class="col-xl-6 col-lg-7">
+<nav class="header__menu">
+<ul>
 
-<ul id="currencies">
-
-</ul>
-</div>
-<div class="language-dropdown">
-
-<ul id="language">
-
-</ul>
-</div>
-
-</div>
-<div class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
-<div class="text-center"><p class="top-header_middle-text" id="p_2"></p></div>
-</div>
-<div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
-<span class="user-menu d-block d-lg-none"><i aria-hidden="true" class="anm anm-user-al"></i></span>
-<ul class="customer-links list-inline">
-
-	{% if user.is_authenticated %}
-  
-	<li class="list-inline-item"><a  href="{% url 'shop:logout' %}"><div>Logout</div></a></li>
-			{% else %}
-	  <li class="list-inline-item"><a href="{% url 'shop:login' %}">Login/Register</a></li>
-	 {% endif %}
-</ul>
-</div>
-</div>
-</div>
-</div>
-<!--End Top Header-->
-<!--Header-->
-<div class="header-wrap classicHeader animated d-flex">
-<div class="container-fluid">
-<div class="row align-items-center">
-<!--Desktop Logo-->
-<div class="logo col-md-2 col-lg-2 d-none d-lg-block">
-<a href="{% url 'web:index' %}">
-<img alt="Belle Multipurpose Html Template" src="{% get_image_url None %}" title="Belle Multipurpose Html Template"/>
-</a>
-</div>
-<!--End Desktop Logo-->
-<div class="col-2 col-sm-3 col-md-3 col-lg-8">
-<div class="d-block d-lg-none">
-<button class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open" type="button">
-<i class="icon anm anm-times-l"></i>
-<i class="anm anm-bars-r"></i>
-</button>
-</div>
-<!--Desktop Menu-->
-<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
-<ul class="site-nav medium right hidearrow" id="siteNav">
-
-	<li class="lvl1 parent megamenu"><a href="{% url 'web:index' %}">Home <i class="anm anm-angle-down-l"></i></a>
-		<li class="lvl1 parent megamenu"><a href="{% url 'web:shop' %}">Shop <i class="anm anm-angle-down-l"></i></a>
-		<li class="lvl1 parent megamenu"><a href="{% url 'shop:purchesed_list' %}">Order List <i class="anm anm-angle-down-l"></i></a>
-		<li class="lvl1 parent dropdown"><a href="{% url 'web:about' %}">About Us<i class="anm anm-angle-down-l"></i></a>
-		<li class="lvl1 parent dropdown"><a href="{% url 'web:contact' %}">Contact <i class="anm anm-angle-down-l"></i></a>
+<li class="lvl1 parent megamenu"><a href="{% url 'web:index' %}">Home <i class="anm anm-angle-down-l"></i></a>
+<li class="lvl1 parent megamenu"><a href="{% url 'web:shop' %}">Shop <i class="anm anm-angle-down-l"></i></a>
+<li class="lvl1 parent megamenu"><a href="{% url 'shop:purchesed_list' %}">Order List <i class="anm anm-angle-down-l"></i></a>
+<li class="lvl1 parent dropdown"><a href="{% url 'web:blog' %}">Blogs<i class="anm anm-angle-down-l"></i></a>
+<li class="lvl1 parent dropdown"><a href="{% url 'web:contact' %}">Contact <i class="anm anm-angle-down-l"></i></a>
+    
 </ul>
 </nav>
-<!--End Desktop Menu-->
 </div>
-<!--Mobile Logo-->
-<div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
-<div class="logo">
-<a href="{% url 'web:index' %}">
-<img alt="Belle Multipurpose Html Template" src="{% get_image_url None %}" title="Belle Multipurpose Html Template"/>
-</a>
+<div class="col-lg-3">
+<div class="header__right">
+<div class="header__right__auth">
+   
+    
 </div>
-</div>
-<!--Mobile Logo-->
-<div class="col-4 col-sm-3 col-md-3 col-lg-2">
-<div class="site-cart">
-<a class="site-header__cart" href="{% url 'shop:cart_list' %}" title="Cart">
-<i class="icon anm anm-bag-l"></i>
-<span class="site-header__cart-count" data-cart-render="item_count" id="CartCount"></span>
-</a>
+<ul class="header__right__widget">
+<li><span class="icon_search search-switch"></span></li>
 
+<li><a href="{% url 'shop:cart_list' %}"><span class="icon_bag_alt"></span>
 
-<!--Minicart Popup-->
-
-
-<div class="block block-cart" id="header-cart">
-<ul class="mini-products-list">
-
-<!-- <li class="item">
-<a class="product-image" href="#">
-<img alt="Elastic Waist Dress - Black / Small" src="{% get_image_url 11 %}" title=""/>
-</a>
-<div class="product-details">
-<a class="remove" href="#"><i aria-hidden="true" class="anm anm-times-l"></i></a>
-<a class="edit-i remove" href="#"><i aria-hidden="true" class="anm anm-edit"></i></a>
-<a class="pName" href="cart.html">Elastic Waist Dress</a>
-<div class="variant-cart">Gray / XXL</div>
-<div class="wrapQtyBtn">
-<div class="qtyField">
-<span class="label">Qty:</span>
-<a class="qtyBtn minus" href="javascript:void(0);"><i aria-hidden="true" class="fa anm anm-minus-r"></i></a>
-<input class="product-form__input qty" id="Quantity" name="quantity" type="text" value="1"/>
-<a class="qtyBtn plus" href="javascript:void(0);"><i aria-hidden="true" class="fa anm anm-plus-r"></i></a>
-</div>
-</div>
-<div class="priceRow">
-<div class="product-price">
-<span class="money">$99.00</span>
-</div>
-</div>
-</div>
-</li> -->
+</a></li>
+{% if user.is_authenticated %}
+  
+<li class="list-inline-item"><a  href="{% url 'shop:logout' %}"><div>Logout</div></a></li>
+        {% else %}
+  <li class="list-inline-item"><a href="{% url 'shop:login' %}">Login/Register</a></li>
+ {% endif %}
 </ul>
-<div class="total">
-<div class="total-in">
-<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">{{total}} birr</span></span>
 </div>
-<div class="buttonSet text-center">
-<a class="btn btn-secondary btn--small" href="{% url 'shop:cart_list' %}">View Cart</a>
+</div>
+</div>
+<div class="canvas__open">
+<i class="fa fa-bars"></i>
+</div>
+</div>
+</header>
+    <!-- Header Section End -->
 
-</div>
-</div>
-</div>
-<!--End Minicart Popup-->
-</div>
-<div class="site-header__search">
-<button class="search-trigger" type="button"><i class="icon anm anm-search-l"></i></button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!--End Header-->
-<!--Mobile Menu-->
-<div class="mobile-nav-wrapper" role="navigation">
-	<div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
-	<ul class="mobile-nav" id="MobileNav">
-	<li class="lvl1 parent megamenu"><a href="{% url 'web:index' %}">Home </a>
-	<li class="lvl1 parent megamenu"><a href="{% url 'web:shop' %}">Shop</a>
-	<li class="lvl1 parent megamenu"><a href="{% url 'shop:purchesed_list' %}">Order List</a>
-	<li class="lvl1 parent megamenu"><a href="{% url 'web:about' %}"> About Us</a>
-	<li class="lvl1 parent megamenu"><a href="{% url 'web:contact' %}"> Contact</a>
-	
-	</li>
-	</ul>
-	</div>
-<!--End Mobile Menu-->
-<!--End Mobile Menu-->
-    <br> <br> <br>
-
-     
-    <!--Body Content-->
-    <div id="page-content">
-    	<!--Page Title-->
-    	<div class="page section-header text-center">
-			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">Checkout</h1></div>
-      		</div>
-		</div>
-        <!--End Page Title-->
-        <!-- <div class="container-fluid pt-5">
-        <div class="row px-xl-5">
-            <div class="col-lg-8">
-                <div class="mb-4">
-                    <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label>First Name</label>
-                            <input class="form-control" type="text" placeholder="John">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Last Name</label>
-                            <input class="form-control" type="text" placeholder="Doe">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="example@email.com">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Mobile No</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Address Line 1</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Address Line 2</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Country</label>
-                            <select class="custom-select">
-                                <option selected>United States</option>
-                                <option>Afghanistan</option>
-                                <option>Albania</option>
-                                <option>Algeria</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>City</label>
-                            <input class="form-control" type="text" placeholder="New York">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>State</label>
-                            <input class="form-control" type="text" placeholder="New York">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>ZIP Code</label>
-                            <input class="form-control" type="text" placeholder="123">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="newaccount">
-                                <label class="custom-control-label" for="newaccount">Create an account</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="shipto">
-                                <label class="custom-control-label" for="shipto"  data-toggle="collapse" data-target="#shipping-address">Ship to different address</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="collapse mb-4" id="shipping-address">
-                    <h4 class="font-weight-semi-bold mb-4">Shipping Address</h4>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label>First Name</label>
-                            <input class="form-control" type="text" placeholder="John">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Last Name</label>
-                            <input class="form-control" type="text" placeholder="Doe">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="example@email.com">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Mobile No</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Address Line 1</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Address Line 2</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Country</label>
-                            <select class="custom-select">
-                                <option selected>United States</option>
-                                <option>Afghanistan</option>
-                                <option>Albania</option>
-                                <option>Algeria</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>City</label>
-                            <input class="form-control" type="text" placeholder="New York">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>State</label>
-                            <input class="form-control" type="text" placeholder="New York">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>ZIP Code</label>
-                            <input class="form-control" type="text" placeholder="123">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="col-lg-4">
-                <div class="card border-secondary mb-5">
-                    <div class="card-header  border-0">
-                        {% for i in order %}
-                        <h4 class="font-weight-semi-bold m-0">Order Total</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="font-weight-medium mb-3">Products</h5>
-                        <div class="d-flex justify-content-between">
-                            <p>{{i.0.item.name}}</p>
-                            <p>
-                     {% if i.0.item.disc > 0 %}
-
-	{% with discounted_price=i.1|calculate_discounted_price:i.0.item.disc|floatformat:2 %}
-	<p>{{ discounted_price }} birr <del>{{i.1}} birr</del></p>
-					{% endwith %}
-					{% else %}
-					<p>{{i.1}} birr</p>
-					{% endif %}
-                            </p>
-                        </div>
-                        {% endfor %}
-                       
-                       
-                        <hr class="mt-0">
-                        <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">{{total}} birr</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">Free Delivery</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Discount</h6>
-                            <h6 class="font-weight-medium">- {{discunt}} birr</h6>
-                        </div>
-                    </div>
-                    <div class="card-footer border-secondary bg-transparent">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{subtot}} birr</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="card border-secondary mb-5">
-                    <div class="card-header  border-0">
-                        <h4 class="font-weight-semi-bold m-0">Payment</h4>
-                    </div>
-                    <div class="card-body">
-                   <div class="accordion-title">
-                    Direct Bank Transfer
-                            </div>
-                        </div>
-                        <div class="accordion-content">
-                            <p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                            <div class="table-responsive">
-                                <table class="table cart">
-                                    <thead>
-                                        <tr>
-                                            <th class="cart-product-name">Account Name(Bank)</th>
-                                            <th class="cart-product-subtotal">Account Number</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for ban in  bank %}
-                                        <tr class="cart_item">
-
-                                            <td class="cart-product-name">
-                                                <a href="#">{{ban.name}} ({{ban.Bank_name}})</a>
-                                            </td>
-
-
-                                            <td class="cart-product-subtotal">
-                                                <span class="amount">{{ban.account_number}}</span>
-                                            </td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="card-footer border-secondary bg-transparent">
-						<button class="btn btn-lg btn-block font-weight-bold my-3 py-3" style="background-color: black; color: white;">Place Order</button>
-
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'web:index' %}"><i class="fa fa-home"></i> Home</a>
+                        <span>Shopping cart</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Checkout End -->
-    
+    <!-- Breadcrumb End -->
 
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-lg-12">
+                    <h6 class="coupon__link"><span class="icon_tag_alt"></span> <a href="#">Have a coupon?</a> Click
+                    here to enter your code.</h6>
+                </div> -->
+            <!-- </div>
+            <form action="#" class="checkout__form">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h5>Billing detail</h5>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__form__input">
+                                    <p>First Name <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__form__input">
+                                    <p>Last Name <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="checkout__form__input">
+                                    <p>Country <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                                <div class="checkout__form__input">
+                                    <p>Address <span>*</span></p>
+                                    <input type="text" placeholder="Street Address">
+                                    <input type="text" placeholder="Apartment. suite, unite ect ( optinal )">
+                                </div>
+                                <div class="checkout__form__input">
+                                    <p>Town/City <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                                <div class="checkout__form__input">
+                                    <p>Country/State <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                                <div class="checkout__form__input">
+                                    <p>Postcode/Zip <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__form__input">
+                                    <p>Phone <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__form__input">
+                                    <p>Email <span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="checkout__form__checkbox">
+                                    <label for="acc">
+                                        Create an acount?
+                                        <input type="checkbox" id="acc">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>Create am acount by entering the information below. If you are a returing
+                                        customer login at the <br />top of the page</p>
+                                    </div>
+                                    <div class="checkout__form__input">
+                                        <p>Account Password <span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                    <div class="checkout__form__checkbox">
+                                        <label for="note">
+                                            Note about your order, e.g, special noe for delivery
+                                            <input type="checkbox" id="note">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="checkout__form__input">
+                                        <p>Oder notes <span>*</span></p>
+                                        <input type="text"
+                                        placeholder="Note about your order, e.g, special noe for delivery">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-4">
+                            <div class="checkout__order">
+                                {% for i in order %}
 
-<!--Footer-->
+                                <h5>Your order</h5>
 
+                                <div class="checkout__order__product">
+                                    <ul>
+                                        <li>
+                                            <span class="top__text">Product</span>
+                                            <span class="top__text__right">Total</span>
+                                        </li>
+                                        <li>{{i.0.item.name}}<span>
 
-<footer class="footer-5" id="footer">
-    <div class="site-footer">
+                                            {% if i.0.item.disc > 0 %}
+
+                                            {% with discounted_price=i.1|calculate_discounted_price:i.0.item.disc|floatformat:2 %}
+                                                            <div class="amount"><ins>{{ discounted_price }} birr</ins><br><del>{{i.1}} birr</del> </div>
+                                                {% endwith %}
+                                            {% else %}
+                                                <span>{{i.1}} birr</span>
+                                            {% endif %} </span></li>
+                                            {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="checkout__order__total">
+                                    <ul>
+                                        <li>Subtotal <span>{{total}} birr</span></li>
+                                        <li>Discount <span> - {{discunt}} birr</span></li>
+                                        <li>Total <span>{{subtot}} birr</span></li>
+                                    </ul>
+                                </div>
+                                <div class="checkout__order__widget">
+                                    <label for="o-acc">
+                                        Create an acount?
+                                        <input type="checkbox" id="o-acc">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>Create am acount by entering the information below. If you are a returing customer
+                                    login at the top of the page.</p>
+                                    <label for="check-payment">
+                                        Direct Bank Transfer
+                                        <!-- <input type="checkbox" id="check-payment">
+                                        <span class="checkmark"></span> -->
+
+                                        <table class="table cart">
+											<thead>
+												<tr>
+													<th class="cart-product-name">Account Name(Bank)</th>
+													<th class="cart-product-subtotal">Account Number</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for ban in  bank %}
+												<tr class="cart_item">
+		
+													<td class="cart-product-name">
+														<a href="#">{{ban.name}} ({{ban.Bank_name}})</a>
+													</td>
+		
+		
+													<td class="cart-product-subtotal">
+														<span class="amount">{{ban.account_number}}</span>
+													</td>
+												</tr>
+												{% endfor %}
+                                             </tbody>
+                                        </table>
+                                    </label>
+                                    
+                                </div>
+                                <button type="submit" class="site-btn">Place oder</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Checkout Section End -->
+
+        <!-- Instagram Begin -->
+        <div class="instagram">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                        <div class="instagram__item set-bg" data-setbg="{% get_image_url 26 %}">
+                            <div class="instagram__text">
+                                <i class="fa fa-instagram"></i>
+                                <a href="#">@ ashion_shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                        <div class="instagram__item set-bg" data-setbg="{% get_image_url 27 %}">
+                            <div class="instagram__text">
+                                <i class="fa fa-instagram"></i>
+                                <a href="#">@ ashion_shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                        <div class="instagram__item set-bg" data-setbg="{% get_image_url 28 %}">
+                            <div class="instagram__text">
+                                <i class="fa fa-instagram"></i>
+                                <a href="#">@ ashion_shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                        <div class="instagram__item set-bg" data-setbg="{% get_image_url 29 %}">
+                            <div class="instagram__text">
+                                <i class="fa fa-instagram"></i>
+                                <a href="#">@ ashion_shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                        <div class="instagram__item set-bg" data-setbg="{% get_image_url 30 %}">
+                            <div class="instagram__text">
+                                <i class="fa fa-instagram"></i>
+                                <a href="#">@ ashion_shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                        <div class="instagram__item set-bg" data-setbg="{% get_image_url 31 %}">
+                            <div class="instagram__text">
+                                <i class="fa fa-instagram"></i>
+                                <a href="#">@ ashion_shop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Instagram End -->
+
+        <!-- Footer Section Begin -->
+       
+<footer class="footer">
     <div class="container">
-    <!--Footer Links-->
-    <div class="footer-top">
-      <div class="row">
-      <div class="col-12 col-sm-12 col-md-3 col-lg-3 contact-box">
-      <div class="footer-logo"><img alt="Belle Multipurpose Html Template" src="{% get_image_url None %}" title="Belle Multipurpose Html Template"/></div>
-      <ul class="addressFooter">
-      <li><i class="icon anm anm-map-marker-al"></i><p id="p_11"> 55 Gallaxy Enque,2568 steet, 23568 NY</p></li>
-      <li class="phone"><i class="icon anm anm-phone-l"></i><p id="p_12">
-  
-          (440) 000 000 0000</p></li>
-      <li class="email"><i class="icon anm anm-envelope-l"></i><p id="p_13">sales@yousite.com</p></li>
-      </ul>
-      <div class="footer-social">
-      <h4 class="h4" id="h4_1">Stay Connected</h4>
-      <ul class="list--inline site-footer__social-icons social-icons">
-    
-    
-        <ul>
-          {% for social_media in social %}
-              {% if social_media.social_media.name == "Facebook" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-facebook"></i></a></li>
-              {% elif social_media.social_media.name == "Instagram" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-instagram"></i></a></li>
-              {% elif social_media.social_media.name == "Twitter" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-twitter"></i></a></li>
-              {% elif social_media.social_media.name == "LinkedIn" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-linkedin"></i></a></li>
-              {% elif social_media.social_media.name == "Snapchat" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-snapchat"></i></a></li>
-              {% elif social_media.social_media.name == "Pinterest" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-pinterest"></i></a></li>
-              {% elif social_media.social_media.name == "Reddit" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-reddit"></i></a></li>
-              {% elif social_media.social_media.name == "TikTok" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-tiktok"></i></a></li>
-              {% elif social_media.social_media.name == "YouTube" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-youtube"></i></a></li>
-              {% elif social_media.social_media.name == "WhatsApp" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-whatsapp"></i></a></li>
-              {% elif social_media.social_media.name == "WeChat" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-weixin"></i></a></li>
-              {% elif social_media.social_media.name == "Tumblr" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-tumblr"></i></a></li>
-              {% elif social_media.social_media.name == "Twitch" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-twitch"></i></a></li>
-              {% elif social_media.social_media.name == "Telegram" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-telegram"></i></a></li>
-              {% elif social_media.social_media.name == "Discord" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-discord"></i></a></li>
-              {% elif social_media.social_media.name == "Clubhouse" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-houzz"></i></a></li>
-              {% elif social_media.social_media.name == "Viber" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-viber"></i></a></li>
-              {% elif social_media.social_media.name == "LINE" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-line"></i></a></li>
-              {% elif social_media.social_media.name == "QQ" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-qq"></i></a></li>
-              {% elif social_media.social_media.name == "Sina Weibo" %}
-                  <li><a href="{{ social_media.link }}"><i class="fab fa-weibo"></i></a></li>
-              {% endif %}
-          {% endfor %}
-      </ul>
-      
-    </ul>
-    </div>
-    </div>
-    <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-    <h4 class="h4">pages</h4>
-    <ul>
-    <li><a href="{% url 'web:index' %}">Home</a></li>
-    <li><a href="{% url 'web:shop' %}">Shop</a></li>
-    <li><a href="{% url 'shop:purchesed_list' %}">Order List</a></li>
-    <li><a href="{% url 'web:about' %}">About us</a></li>
-    <li><a href="{% url 'web:contact' %}">contact</a></li>
-    
-    </ul>
-    </div>
-    <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-    <h4 class="h4" id="h4_3"></h4>
-    <ul>
-    <li><a href="#">Request Personal Data</a></li>
-    <li><a href="#">FAQ's</a></li>
-    <li><a href="{% url 'web:contact' %}">Contact Us</a></li>
-    <li><a href="{% url 'web:shop' %}">Orders and Returns</a></li>
-    <li><a href="#">Support Center</a></li>
-    </ul>
-    </div>
-    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-    <div class="display-table">
-    <div class="display-table-cell footer-newsletter">
-        <form method="post" action="{% url 'web:collect_email' %}">
-            {% csrf_token %}
-          <label class="h4">Newsletter</label>
-          <p id="p_14"></p>
-          <div class="input-group">
-          <input class="input-group__field newsletter__input" name="email" placeholder="Email address" required="" type="email" value=""/>
-          <span class="input-group__btn">
-          <button class="btn newsletter__submit" id="Subscribe" name="commit" type="submit"><span class="newsletter__submit-text--large">Subscribe</span></button>
-          </span>
-          </div>
-          </form>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!--End Footer Links-->
-    <hr/>
-    <div class="footer-bottom">
     <div class="row">
-    <!--Footer Copyright-->
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-0 order-lg-0 order-sm-1 copyright text-sm-center text-md-left text-lg-left"><span> 2024 Template distributed by </span> <a href="http://zufan.et">zufan.et</a></div>
-    <!--End Footer Copyright-->
-    <!--Footer Payment Icon-->
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-0 order-md-1 order-lg-1 order-sm-0 payment-icons text-right text-md-center">
-    <img alt="Payment" src="{% get_image_url 53 %}"/>
+    <div class="col-lg-4 col-md-6 col-sm-7">
+    <div class="footer__about">
+    <div class="footer__logo">
+    <a href="{% url 'web:index' %}"><img alt="" src="{% get_image_url 20 %}"/></a>
     </div>
-    <!--End Footer Payment Icon-->
+    <p id="p_14">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt cilisis.</p>
+    <div class="footer__payment">
+    <!-- <a href="#"><img alt="" src="{% get_image_url 21 %}"/></a>
+    <a href="#"><img alt="" src="{% get_image_url 22 %}"/></a>
+    <a href="#"><img alt="" src="{% get_image_url 23 %}"/></a>
+    <a href="#"><img alt="" src="{% get_image_url 24 %}"/></a>
+    <a href="#"><img alt="" src="{% get_image_url 25 %}"/></a> -->
     </div>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-5">
+    <div class="footer__widget">
+    <h6 id="h6_22"></h6>
+    <ul>
+    <li><a href="#">About</a></li>
+    <li><a href="{% url 'web:blog' %}">Blogs</a></li>
+    <li><a href="{% url 'web:contact' %}">Contact</a></li>
+    <li><a href="#">FAQ</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4">
+    <div class="footer__widget">
+    <h6 id="h6_23"></h6>
+    <ul>
+    
+    <li><a href="{% url 'shop:purchesed_list' %}">Orders Tracking</a></li>
+    <li><a href="{% url 'shop:cart_list' %}">Cart</a></li>
+    {% if user.is_authenticated %}
+      
+        <li class="list-inline-item"><a  href="{% url 'shop:logout' %}"><div>Logout</div></a></li>
+                {% else %}
+          <li class="list-inline-item"><a href="{% url 'shop:login' %}">Login/Register</a></li>
+         {% endif %}
+    </ul>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-8 col-sm-8">
+    <div class="footer__newslatter">
+    <h6 id="h6_24"></h6>
+    <form method="post" action="{% url 'web:collect_email' %}">
+        {% csrf_token %}
+    <input placeholder="Email" name="email"  type="text"/>
+    <button class="site-btn" name="commit"  type="submit">Subscribe</button>
+    </form>
+    <div class="footer__social">
+        {% for socilamedia in social %}
+        {% if socilamedia.social_media.name == "Facebook" %}
+        <a href="{{socilamedia.link}}"><i class="fab fa-facebook"></i></a>
+        {% elif socilamedia.social_media.name == "Instagram" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-instagram"></i></a>
+        {% elif socilamedia.social_media.name == "Twitter" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-twitter"></i></a>
+        {% elif socilamedia.social_media.name == "LinkedIn" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-linkedin"></i></a>
+        {% elif socilamedia.social_media.name == "Snapchat" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-snapchat"></i></a>
+        {% elif socilamedia.social_media.name == "Pinterest" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-pinterest"></i></a>
+        {% elif socilamedia.social_media.name == "Reddit" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-reddit"></i></a>
+        {% elif socilamedia.social_media.name == "TikTok" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-tiktok"></i></a>
+        {% elif socilamedia.social_media.name == "YouTube" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-youtube"></i></a>
+        {% elif socilamedia.social_media.name == "WhatsApp" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-whatsapp"></i></a>
+        {% elif socilamedia.social_media.name == "WeChat" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-weixin"></i></a>
+        {% elif socilamedia.social_media.name == "Tumblr" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-tumblr"></i></a>
+        {% elif socilamedia.social_media.name == "Twitch" %}
+        <a href="{{socilamedia.link}}"><i class="fab fa-twitch"></i></a>
+        {% elif socilamedia.social_media.name == "Telegram" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-telegram"></i></a>
+        {% elif socilamedia.social_media.name == "Discord" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-discord"></i></a>
+        {% elif socilamedia.social_media.name == "Clubhouse" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-houzz"></i></a>
+        {% elif socilamedia.social_media.name == "Viber" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-viber"></i></a>
+        {% elif socilamedia.social_media.name == "LINE" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-line"></i></a>
+        {% elif socilamedia.social_media.name == "QQ" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-qq"></i></a>
+        {% elif socilamedia.social_media.name == "Sina Weibo" %}
+        <a href="{{socilamedia.link}}"> <i class="fab fa-weibo"></i></a>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12">
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    <div class="footer__copyright__text">
+        <p > Copyright © 2024 All rights reserved | This template is made with by <a href="http://zufan.et">zufan.et</a></p>
+    </div>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     </div>
     </div>
     </div>
     </footer>
-    <!--End Footer-->
-    <!--Scoll Top-->
-    <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
-    <!--End Scoll Top-->
-    <!--Quick View popup-->
-    <div class="modal fade quick-view-popup" id="content_quickview">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-body">
-    <div class="product-template__container prstyle1" id="ProductSection-product-template">
-    <div class="product-single">
-    <!-- Start model close -->
-    <a class="model-close-btn pull-right" data-dismiss="modal" href="javascript:void()" title="close"><span class="icon icon anm anm-times-l"></span></a>
-    <!-- End model close -->
-    <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="product-details-img">
-    <div class="pl-20">
-    <img alt="" src="{% get_image_url 54 %}"/>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="product-single__meta">
-    <h2 class="product-single__title" id="h2_8"></h2>
-    <div class="prInfoRow">
-    <div class="product-stock"> <span class="instock">In Stock</span> <span class="outstock hide">Unavailable</span> </div>
-    <div class="product-sku">SKU: <span class="variant-sku">19115-rdxs</span></div>
-    </div>
-    <p class="product-single__price product-single__price-product-template" id="p_15"></p>
-    <div class="product-single__description rte">
-                                        Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping experience which can be used for various kinds of stores such as fashion,...
-                                    </div>
-    <form accept-charset="UTF-8" action="http://annimexweb.com/cart/add" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data" id="product_form_10508262282" method="post">
-    <div class="swatch clearfix swatch-0 option1" data-option-index="0">
-    <div class="product-form__item">
-    <label class="header">Color: <span class="slVariant">Red</span></label>
-    <div class="swatch-element color red available" data-value="Red">
-    <input class="swatchInput" id="swatch-0-red" name="option-0" type="radio" value="Red"/>
-    <label class="swatchLbl color medium rectangle" for="swatch-0-red" style="background-image:url(assets/images/product-detail-page/variant1-1.jpg);" title="Red"></label>
-    </div>
-    <div class="swatch-element color blue available" data-value="Blue">
-    <input class="swatchInput" id="swatch-0-blue" name="option-0" type="radio" value="Blue"/>
-    <label class="swatchLbl color medium rectangle" for="swatch-0-blue" style="background-image:url(assets/images/product-detail-page/variant1-2.jpg);" title="Blue"></label>
-    </div>
-    <div class="swatch-element color green available" data-value="Green">
-    <input class="swatchInput" id="swatch-0-green" name="option-0" type="radio" value="Green"/>
-    <label class="swatchLbl color medium rectangle" for="swatch-0-green" style="background-image:url(assets/images/product-detail-page/variant1-3.jpg);" title="Green"></label>
-    </div>
-    <div class="swatch-element color gray available" data-value="Gray">
-    <input class="swatchInput" id="swatch-0-gray" name="option-0" type="radio" value="Gray"/>
-    <label class="swatchLbl color medium rectangle" for="swatch-0-gray" style="background-image:url(assets/images/product-detail-page/variant1-4.jpg);" title="Gray"></label>
-    </div>
-    </div>
-    </div>
-    <div class="swatch clearfix swatch-1 option2" data-option-index="1">
-    <div class="product-form__item">
-    <label class="header">Size: <span class="slVariant">XS</span></label>
-    <div class="swatch-element xs available" data-value="XS">
-    <input class="swatchInput" id="swatch-1-xs" name="option-1" type="radio" value="XS"/>
-    <label class="swatchLbl medium rectangle" for="swatch-1-xs" title="XS">XS</label>
-    </div>
-    <div class="swatch-element s available" data-value="S">
-    <input class="swatchInput" id="swatch-1-s" name="option-1" type="radio" value="S"/>
-    <label class="swatchLbl medium rectangle" for="swatch-1-s" title="S">S</label>
-    </div>
-    <div class="swatch-element m available" data-value="M">
-    <input class="swatchInput" id="swatch-1-m" name="option-1" type="radio" value="M"/>
-    <label class="swatchLbl medium rectangle" for="swatch-1-m" title="M">M</label>
-    </div>
-    <div class="swatch-element l available" data-value="L">
-    <input class="swatchInput" id="swatch-1-l" name="option-1" type="radio" value="L"/>
-    <label class="swatchLbl medium rectangle" for="swatch-1-l" title="L">L</label>
-    </div>
-    </div>
-    </div>
-    <!-- Product Action -->
-    <div class="product-action clearfix">
-    <div class="product-form__item--quantity">
-    <div class="wrapQtyBtn">
-    <div class="qtyField">
-    <a class="qtyBtn minus" href="javascript:void(0);"><i aria-hidden="true" class="fa anm anm-minus-r"></i></a>
-    <input class="product-form__input qty" id="qty" name="quantity" type="text" value="1"/>
-    <a class="qtyBtn plus" href="javascript:void(0);"><i aria-hidden="true" class="fa anm anm-plus-r"></i></a>
-    </div>
-    </div>
-    </div>
-    <div class="product-form__item--submit">
-    <button class="btn product-form__cart-submit" name="add" type="button">
-    <span>Add to cart</span>
-    </button>
-    </div>
-    </div>
-    <!-- End Product Action -->
+    <!-- Footer Section End -->
+    <!-- Search Begin -->
+    <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="search-close-switch">+</div>
+    <form class="search-model-form" role="search" action="{% url 'web:search' %}">
+    <input id="search-input"  name="search" placeholder="Search here....." type="text"/>
     </form>
-    <div class="display-table shareRow">
-    <div class="display-table-cell">
-    <div class="wishlist-btn">
-    <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist"><i aria-hidden="true" class="icon anm anm-heart-l"></i> <span>Add to Wishlist</span></a>
     </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!--End-product-single-->
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!--End Quick View popup-->
-    <!-- Newsletter Popup -->
-    
-    <!-- End Newsletter Popup -->
-    <!-- Including Jquery -->
-    <script src="{% static 'assets/js/vendor/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'assets/js/vendor/modernizr-3.6.0.min.js' %}"></script>
-    <script src="{% static 'assets/js/vendor/jquery.cookie.js' %}"></script>
-    <script src="{% static 'assets/js/vendor/wow.min.js' %}"></script>
-    <!-- Including Javascript -->
-    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins.js' %}"></script>
-    <script src="{% static 'assets/js/popper.min.js' %}"></script>
-    <script src="{% static 'assets/js/lazysizes.js' %}"></script>
-    <script src="{% static 'assets/js/main.js' %}"></script>
-    <!--For Newsletter Popup-->
-    
-    <!--End For Newsletter Popup-->
-    </div>
+    <!-- Search End -->
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'webfunction.js' %}"></script><script>
         document.addEventListener('DOMContentLoaded', function () {
             // Iterate over each key in the JSON data
@@ -684,5 +495,4 @@
             }
         });
         </script></body>
-    <!-- belle/home5-cosmetic.html   11 Nov 2019 12:28:00 GMT -->
     </html>
